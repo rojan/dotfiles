@@ -1,0 +1,26 @@
+extends php
+
+snippet za "zend action"
+/**
+* $1 action : description
+* @param param1 type description
+* @return ${2:void}
+*/
+public function ${1:index}Action()
+{
+}
+endsnippet
+
+snippet zc "zend controller"
+/**
+* class ${1:`!p snip.rv=snip.fn.capitalize().split('.')[0]`}: description
+* @author $4
+*/
+class $1_Controller extends ${2:Base}_Controller
+{
+    public function __construct($3)
+    {
+        parent::__construct();
+    }
+}
+endsnippet
