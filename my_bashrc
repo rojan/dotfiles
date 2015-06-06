@@ -31,6 +31,7 @@ fi
 
 export PYTHONPATH=$HOME/django/dev:$PYTHONPATH
 export PATH=$HOME/local/node/bin:$PATH
+export PATH=$HOME/local/phantomjs/bin:$PATH
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

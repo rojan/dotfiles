@@ -3,3 +3,24 @@ extends all
 snippet date
 `!v strftime("%Y-%m-%d")`
 endsnippet
+
+snippet sha1 "generate sha1 of current file"
+`!p
+import hashlib
+def hash_file(filepath):
+	sha1 = hashlib.sha1()
+	f = open(filepath, 'rb')
+	try:
+		sha1.update(f.read())
+	finally:
+		f.close()
+	return sha1.hexdigest()
+
+if path:
+	snip.rv = hash_file(path)
+`
+endsnippet
+
+snippet test "test"
+`!p fn`
+endsnippet
