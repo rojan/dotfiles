@@ -22,6 +22,8 @@ Plug 'sjl/gundo.vim'
 Plug 'axiaoxin/vim-json-line-format'
 Plug 'godlygeek/tabular'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
+Plug 'sickill/vim-pasta'
+Plug '~/.vim/plugin/'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -116,12 +118,13 @@ nmap <F12> :!ctags -f $VIRTUAL_ENV/.tags -R $VIRTUAL_ENV/lib/python2.7/site-pack
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+let g:EclimCompletionMethod = 'omnifunc'
 "python import pysmell
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "set complete-=i
 "omni auto complete {
 set ofu=syntaxcomplete#Complete
