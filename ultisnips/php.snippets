@@ -50,10 +50,12 @@ class $1 extends Vtx_Service_Plugin
 	{
 		$this->domainUrl = "$4";
 		$this->baseUrl = "$5";
+
+
+		$this->dataSet->commit();
+		$this->dataSet->finalize();
+		return $this;
 	}
 
-	$this->dataSet->commit();
-	$this->dataSet->finalize();
-	return $this;
 }
 endsnippet
