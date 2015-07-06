@@ -24,3 +24,36 @@ class $1_Controller extends ${2:Base}_Controller
     }
 }
 endsnippet
+
+snippet plugin "Grepsr Plugin"
+<?php
+/**
+* Name: $1
+* Description: $1
+* PID: $2
+* */
+
+class $1 extends Vtx_Service_Plugin
+{
+	protected $domainUrl;
+	private $baseUrl;
+	private $colHeaders = array(
+		$3
+	);
+
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
+	public function main($params)
+	{
+		$this->domainUrl = "$4";
+		$this->baseUrl = "$5";
+	}
+
+	$this->dataSet->commit();
+	$this->dataSet->finalize();
+	return $this;
+}
+endsnippet
