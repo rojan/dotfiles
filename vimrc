@@ -119,6 +119,7 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 let g:EclimCompletionMethod = 'omnifunc'
+autocmd FileType php map <buffer> <C-]> :PhpSearch<cr>
 "python import pysmell
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
