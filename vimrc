@@ -24,6 +24,8 @@ Plug 'godlygeek/tabular'
 Plug 'xolox/vim-session' | Plug 'xolox/vim-misc'
 Plug 'sickill/vim-pasta'
 Plug '~/.vim/plugin/'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'morhetz/gruvbox'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -44,7 +46,7 @@ set relativenumber
 set ignorecase
 set smartcase
 set t_Co=256
-set background=dark
+set background=light
 set laststatus=2
 "4 space for tab"
 set smartindent
@@ -68,7 +70,7 @@ set incsearch
 set showmatch
 " highlight search text - get rid of highlight :noh
 set hlsearch
-colorscheme solarized
+colorscheme gruvbox
 "In xterm, set the name of the current file as title 
 set title
 set tags=.tags,$VIRTUAL_ENV/.tags;/
@@ -118,10 +120,11 @@ nmap <F12> :!ctags -f $VIRTUAL_ENV/.tags -R $VIRTUAL_ENV/lib/python2.7/site-pack
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+let g:jedi#popup_on_dot = 1
 let g:EclimCompletionMethod = 'omnifunc'
 autocmd FileType php map <buffer> <C-]> :PhpSearch<cr>
 "python import pysmell
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
