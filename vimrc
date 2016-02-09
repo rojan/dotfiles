@@ -26,6 +26,7 @@ Plug 'sickill/vim-pasta'
 Plug '~/.vim/plugin/'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline-themes'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -208,6 +209,7 @@ let g:airline#extensions#branch#empty_message  =  "no .git"
 let g:airline#extensions#whitespace#enabled    =  0
 let g:airline#extensions#syntastic#enabled     =  1
 let g:airline#extensions#hunks#non_zero_only   =  1 " git gutter
+
 
 """"""""""""""""""""""""""""
 " Vim Session Settings     "
