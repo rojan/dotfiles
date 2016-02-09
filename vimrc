@@ -17,7 +17,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'shawncplus/phpcomplete.vim'
-Plug 'bling/vim-airline'
+Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/gundo.vim'
 Plug 'axiaoxin/vim-json-line-format'
 Plug 'godlygeek/tabular'
@@ -26,7 +26,6 @@ Plug 'sickill/vim-pasta'
 Plug '~/.vim/plugin/'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline-themes'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
