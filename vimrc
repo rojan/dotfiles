@@ -26,6 +26,7 @@ Plug 'sickill/vim-pasta'
 Plug '~/.vim/plugin/'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'morhetz/gruvbox'
+Plug 'maralla/completor.vim'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -36,7 +37,7 @@ function! BuildYCM(info)
     !./install.sh
   endif
 endfunction
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 call plug#end()
 
 """"""""""""""""""""""""""""""""""
@@ -108,7 +109,7 @@ nmap T O<ESC>j
 "Improve up/down movement on wrapped lines 
 nnoremap j gj
 nnoremap k gk
-nmap <F12> :!ctags -f $VIRTUAL_ENV/.tags -R $VIRTUAL_ENV/lib/python2.7/site-packages /home/rojan/.virtualenvs/mysite &> /dev/null & disown<CR>
+"nmap <F12> :!ctags -f $VIRTUAL_ENV/.tags -R $VIRTUAL_ENV/lib/python2.7/site-packages /home/rojan/.virtualenvs/mysite &> /dev/null & disown<CR>
 
 """"""""""""""""""""""""""""""""""""
 " Other settings                   "
@@ -120,6 +121,7 @@ nmap <F12> :!ctags -f $VIRTUAL_ENV/.tags -R $VIRTUAL_ENV/lib/python2.7/site-pack
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+let g:completor_python_binary = '/usr/bin/python3'
 let g:jedi#popup_on_dot = 1
 let g:EclimCompletionMethod = 'omnifunc'
 autocmd FileType php map <buffer> <C-]> :PhpSearch<cr>
@@ -168,29 +170,6 @@ function! s:align()
   endif
 endfunction
 
-"Escape from command-t list
-"let g:CommandTCancelMap=['<ESC>','<C-c>']
-
-"Load Django autocompletion.
-" arg1 - name of project 
-function! LoadDjango(arg1)
-py << EOF
-import os.path
-import sys
-import vim
-
-DJANGO_SETTINGS_MODULE=vim.eval("a:arg1") + '.settings'
-print DJANGO_SETTINGS_MODULE
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-    os.environ['DJANGO_SETTINGS_MODULE'] = DJANGO_SETTINGS_MODULE
-EOF
-endfunction
-"End of LoadDjango function
-
 "Ultisnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -221,3 +200,8 @@ nnoremap <leader>so :OpenSession
 nnoremap <leader>ss :SaveSession 
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+"tab completion setting
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
