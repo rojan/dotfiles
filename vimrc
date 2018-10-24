@@ -74,7 +74,8 @@ set hlsearch
 colorscheme gruvbox
 "In xterm, set the name of the current file as title 
 set title
-set tags=.tags,$VIRTUAL_ENV/.tags;/
+"set tags=.tags,$VIRTUAL_ENV/.tags;/
+set tags=tags
 set backup
 "completion popup doesn’t select first item and typing new letters updates the completion list.
 set completeopt=menuone,longest,preview
@@ -124,13 +125,13 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 let g:completor_python_binary = '/usr/bin/python3'
 let g:jedi#popup_on_dot = 1
 let g:EclimCompletionMethod = 'omnifunc'
-autocmd FileType php map <buffer> <C-]> :PhpSearch<cr>
+"autocmd FileType php map <buffer> <C-]> :PhpSearch<cr>
 "python import pysmell
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "set complete-=i
 "omni auto complete {
 set ofu=syntaxcomplete#Complete
