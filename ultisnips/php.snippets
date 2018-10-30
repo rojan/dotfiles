@@ -48,8 +48,10 @@ class $1 extends Vtx_Service_Plugin
 
 	public function main($params)
 	{
-		$this->domainUrl = "$4";
-		$this->baseUrl = "$5";
+		$this->dataSet->setPageName("$4");
+		$this->dataSet->setColHeaders($this->colHeaders);
+		$this->domainUrl = "$5";
+		$this->baseUrl = "$6";
 
 
 		$this->dataSet->commit();
