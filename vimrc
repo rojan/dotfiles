@@ -53,6 +53,7 @@ set laststatus=2
 set smartindent
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
 set wildignore=*.swp,*.bak,*.pyc,*.jar,*.gif,*.png,*.jpg
 set number
