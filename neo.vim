@@ -115,3 +115,18 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lengthmatters_excluded=['unite', 'tagbar', 'startify', 'gundo',
 			\'vimshell', 'w3m', 'nerdtree', 'help', 'qf', 'dirvish', 'vim',
 			\'php']
+
+
+"Don't lose selected lines
+vnoremap < <gv
+vnoremap > >gv
+
+"Improve up/down movement on wrapped lines 
+nnoremap j gj
+nnoremap k gk
+
+"Replace selected word
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+"Find selected word
+vnoremap <C-f> "hy:vimgrep "<C-r>h" **/*.* \| copen<left><left><left><left><left><left><left><left><left>
