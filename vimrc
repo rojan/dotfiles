@@ -27,6 +27,7 @@ Plug '~/.vim/plugin/'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'morhetz/gruvbox'
 Plug 'maralla/completor.vim'
+Plug 'majutsushi/tagbar'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -207,3 +208,6 @@ nnoremap <leader>sc :CloseSession<CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+"tagbar
+nmap <F8> :TagbarToggle<CR>

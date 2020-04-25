@@ -1,30 +1,5 @@
 extends php
 
-snippet za "zend action"
-/**
-* $1 action : description
-* @param param1 type description
-* @return ${2:void}
-*/
-public function ${1:index}Action()
-{
-}
-endsnippet
-
-snippet zc "zend controller"
-/**
-* class ${1:`!p snip.rv=snip.fn.capitalize().split('.')[0]`}: description
-* @author $4
-*/
-class $1_Controller extends ${2:Base}_Controller
-{
-    public function __construct($3)
-    {
-        parent::__construct();
-    }
-}
-endsnippet
-
 snippet plugin "Grepsr Plugin"
 <?php
 /**
@@ -60,4 +35,25 @@ class $1 extends Vtx_Service_Plugin
 	}
 
 }
+endsnippet
+
+snippet newSession "New session function"
+private function newSession()
+{
+	$this->resetCurl(true);
+	$this->useProxy = 1;
+	$this->switchProxy();
+	$this->setCurlOption(CURLOPT_ENCODING, 'gzip, deflate, br');
+	$this->setHeaders('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8');
+	$this->setHeaders('Accept-Language', 'en-US,en;q=0.5');
+	$this->setHeaders('Connection', 'keep-alive');
+	$this->setHeaders('User-Agent', $this->getUserAgent());
+}
+endsnippet
+
+snippet hola "Hola codes"
+$this->resetHolaSuperProxy();
+$this->enableHola('US');
+$this->setHolaZone('dc_shared');
+$this->switchProxy();
 endsnippet

@@ -18,7 +18,7 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias lrojan='ls -CF'
 
 
 #virtualenvwrapper
@@ -55,3 +55,5 @@ if [ -f `which powerline-daemon` ]; then
   POWERLINE_BASH_SELECT=1
   . /usr/share/powerline/bindings/bash/powerline.sh
 fi
+
+. ~/dotfiles/my_bashrc_custom
