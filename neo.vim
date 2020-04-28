@@ -6,20 +6,18 @@ call plug#begin('~/.nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'yuki-ycino/fzf-preview.vim'
-"Plug 'Shougo/deoplete.nvim'
-"Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
-"Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-"Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
 "color schemes
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
+
 Plug 'rakr/vim-two-firewatch'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'sbdchd/neoformat'
@@ -37,7 +35,7 @@ nmap <C-p> :Files <cr>
 set hidden
 set encoding=utf-8
 set mouse=a
-set termguicolors
+"set termguicolors
 set number
 set tabstop=4
 set smartindent
@@ -79,12 +77,43 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetDirectories=["/home/rojan/dotfiles/ultisnips/","/home/rojan/.vim/plugged/vim-snippets/UltiSnips/"]
 
 "coc config
-let g:coc_global_extensions = [
-			\'coc-pairs',
-			\'coc-python',
-			\'coc-phpls'
-			\]
+" ------------------- coc.nvim configuration --------------------
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -95,14 +124,19 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 "coc -- END--
+
+
 "
 "-------------Vim Key binding------------------
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
@@ -114,7 +148,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lengthmatters_excluded=['unite', 'tagbar', 'startify', 'gundo',
 			\'vimshell', 'w3m', 'nerdtree', 'help', 'qf', 'dirvish', 'vim',
-			\'php']
+			\'php', 'json', 'csv']
 
 
 "Don't lose selected lines
@@ -130,3 +164,5 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 "Find selected word
 vnoremap <C-f> "hy:vimgrep "<C-r>h" **/*.* \| copen<left><left><left><left><left><left><left><left><left>
+
+colorscheme nord
