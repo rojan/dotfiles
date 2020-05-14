@@ -8,10 +8,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdcommenter'
+
+"GIT
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+
+"Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"jump location in file
+Plug 'justinmk/vim-sneak'
 
 "color schemes
 Plug 'drewtempelmeyer/palenight.vim'
@@ -24,11 +31,10 @@ Plug 'sbdchd/neoformat'
 Plug 'whatyouhide/vim-lengthmatters'
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
-
 "--------------FZF--------------------
+"let g:fzf_files_options = {'source': 'rg --files'}
 nmap <C-l> :Buffer <cr>
-nmap <C-p> :Files <cr>
+nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
 
 
 "--------------Behaviour modification----------
@@ -135,6 +141,10 @@ nmap <leader>rn <Plug>(coc-rename)
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 "coc -- END--
+"
+"Fugutive
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gc :Gcommit<CR>
 
 
 "
@@ -149,6 +159,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lengthmatters_excluded=['unite', 'tagbar', 'startify', 'gundo',
 			\'vimshell', 'w3m', 'nerdtree', 'help', 'qf', 'dirvish', 'vim',
 			\'php', 'json', 'csv']
+let g:lengthmatters_highlight_one_column = 1
 
 
 "Don't lose selected lines
@@ -166,3 +177,22 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 vnoremap <C-f> "hy:vimgrep "<C-r>h" **/*.* \| copen<left><left><left><left><left><left><left><left><left>
 
 colorscheme nord
+"highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
+
+"sneak config
+let g:sneak#label = 1
+
+" case insensitive sneak
+let g:sneak#use_ic_scs = 1
+
+" imediately move tot the next instance of search, if you move the cursor sneak is back to default behavior
+let g:sneak#s_next = 1
+
+" remap so I can use , and ; with f and t
+map gS <Plug>Sneak_,
+map gs <Plug>Sneak_;
+
+" Change the colors
+highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
+"sneak config end

@@ -1,0 +1,5 @@
+{
+	"python.linting.enabled": true,
+	"python.jediEnabled": false,
+	"python.autoComplete.extraPaths":["/home/rojan/Documents/work/isolate"]
+}
