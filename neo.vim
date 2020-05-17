@@ -16,6 +16,7 @@ Plug 'mhinz/vim-signify'
 "Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 "jump location in file
 Plug 'justinmk/vim-sneak'
@@ -69,7 +70,7 @@ let g:airline_powerline_fonts = 1
 if !exists("g:airline_symbols")
   let g:airline_symbols = {}
 endif
-let g:airline_theme="powerlineish"
+let g:airline_theme="nord"
 let g:airline_powerline_fonts=1
 let g:airline#extensions#branch#empty_message  =  "no .git"
 let g:airline#extensions#whitespace#enabled    =  0
@@ -179,7 +180,7 @@ vnoremap <C-f> "hy:vimgrep "<C-r>h" **/*.* \| copen<left><left><left><left><left
 colorscheme nord
 "highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 
-"sneak config
+"sneak config START
 let g:sneak#label = 1
 
 " case insensitive sneak
@@ -191,8 +192,4 @@ let g:sneak#s_next = 1
 " remap so I can use , and ; with f and t
 map gS <Plug>Sneak_,
 map gs <Plug>Sneak_;
-
-" Change the colors
-highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
-highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
-"sneak config end
+"sneak config END
