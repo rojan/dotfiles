@@ -3,9 +3,9 @@
 #Custom power control script for dmenu
 #Dependency : slock
 
-option=$(echo -e "Logout\nShutdown\nReboot\nSuspend\nHibernate" | dmenu -i -p "$1")
+option=$(echo -e "Lock\nShutdown\nReboot\nSuspend\nHibernate" | dmenu -i -p "$1")
 
-if [[ $option = "Logout" ]]; then
+if [[ $option = "Lock" ]]; then
 	slock
 elif [[ $option = "Shutdown" ]]; then
 	systemctl poweroff
