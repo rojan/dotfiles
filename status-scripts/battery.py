@@ -10,4 +10,4 @@ if plugged == False:
 else:
     icon = " "
 
-print("{}{}% ".format(icon, percent))
+print(" {}{}% ".format(icon, percent))
