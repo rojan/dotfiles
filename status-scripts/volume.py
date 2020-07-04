@@ -20,9 +20,9 @@ volume_level = stdout_v.decode('ascii')
 is_mute = int(stdout_m.decode('ascii'))
 
 if int(is_mute) > 0:
-    print("婢 ")
+    print(" 婢 ")
 if int(is_mute) <= 0:
     volume_level = re.search('(\d+)\s', volume_level)
     volume_level = volume_level.group(1)
-    print("  {}% ".format(volume_level))
+    print("   {}% ".format(volume_level))
 
