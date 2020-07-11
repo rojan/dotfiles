@@ -193,3 +193,6 @@ let g:sneak#s_next = 1
 map gS <Plug>Sneak_,
 map gs <Plug>Sneak_;
 "sneak config END
+"
+"#FZF-MARK configuration - Switch between project directory
+command! -bang FM call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'lcd'}, <bang>0))
