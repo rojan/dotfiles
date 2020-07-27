@@ -30,6 +30,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'sbdchd/neoformat'
 Plug 'whatyouhide/vim-lengthmatters'
+Plug 'chrisbra/csv.vim'
 call plug#end()
 
 "--------------FZF--------------------
