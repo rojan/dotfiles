@@ -18,7 +18,8 @@ try:
         if packages:
             packages = packages.group(1)
             packages = packages.strip().split("\n")
-            packages_to_updated = len(packages)
+            for p in packages:
+                packages_to_updated += 1
 except Exception as e:
     pass
 
