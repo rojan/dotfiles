@@ -19,9 +19,14 @@ try:
             packages = packages.group(1)
             packages = packages.strip().split("\n")
             for p in packages:
+                if p == "":
+                    continue
                 packages_to_updated += 1
 except Exception as e:
     pass
+
+print (packages_to_updated)
+exit()
 
 with open('/home/rojan/.packages', 'w') as packages_file:
     packages_file.write(str(packages_to_updated))
