@@ -25,8 +25,5 @@ try:
 except Exception as e:
     pass
 
-print (packages_to_updated)
-exit()
-
 with open('/home/rojan/.packages', 'w') as packages_file:
     packages_file.write(str(packages_to_updated))
