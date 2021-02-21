@@ -30,7 +30,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'sbdchd/neoformat'
 Plug 'whatyouhide/vim-lengthmatters'
-Plug 'chrisbra/csv.vim'
+"Plug 'chrisbra/csv.vim'
 call plug#end()
 
 "--------------FZF--------------------
@@ -197,3 +197,6 @@ map gs <Plug>Sneak_;
 "
 "#FZF-MARK configuration - Switch between project directory
 command! -bang Projects call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed "s/.*: \(.*\)$/\1/" | sed "s#~#${HOME}#"', 'sink': 'lcd'}, <bang>0))
+
+"Parse browser header to php function
+noremap <Leader>ph :s/\(.\{-}\): \(.*\)/$this->setHeaders('\1', '\2');<CR>
