@@ -8,4 +8,4 @@ try:
 except Exception as e:
     pass
 
-print(" {}% ".format(mem_used_in_perc))
+print("  {}% ".format(mem_used_in_perc))
