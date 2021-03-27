@@ -14,5 +14,5 @@ except Exception as e:
     pass
 
 if temperature is not None:
-    print(" {}°C, {} ".format(temperature, description))
+    print("{}°C, {}".format(temperature, description))
 

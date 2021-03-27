@@ -20,19 +20,19 @@ exec mailspring &
 #bluetooth applet
 blueman-applet &
 
-/home/rojan/dotfiles/status-scripts/package_update.py &
+#/home/rojan/dotfiles/status-scripts/package_update.py &
 
 killall dwmblocks
 dwmblocks &
 
 # start picom
-picom &
+#picom &
 
 #start dunst
 dunst &
 
 #keybinding
-xbindkeys -f ~/dotfiles/xbindkeysrc
+#xbindkeys -f ~/dotfiles/xbindkeysrc
 
 #start gnome-keyring
 dbus-update-activation-environment --systemd DISPLAY
@@ -41,5 +41,10 @@ export SSH_AUTH_SOCK
 
 #system try
 #exec trayer --edge top --align right --margin 5 --widthtype percent --width 6 --heighttype percent --height 17 --expand false --padding 5 --iconspacing 5 --transparent true &
+
+#dpi settings
+#xrandr --dpi 192
+xrandr --dpi 210
+xrdb -merge ~/.Xresources
 
 exec dwm 

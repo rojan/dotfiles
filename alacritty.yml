@@ -13,7 +13,7 @@ env:
   TERM: alacritty
   LANG: "en_US.UTF-8"
   LC_CTYPE: en_US.UTF-8
-  WINIT_X11_SCALE_FACTOR: "1"
+  #WINIT_X11_SCALE_FACTOR: "1"
 
 window:
   # Window dimensions (changes require restart)
@@ -155,31 +155,59 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 # Colors (Tomorrow Night Bright)
+
+#NORD
 colors:
   # Default colors
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: '0x2E3440'
+    foreground: '0xD8DEE9'
 
   # Normal colors
   normal:
-    black: '#000000'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#caa9fa'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#bfbfbf'
+    black:   '0x3B4252'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan:    '0x88C0D0'
+    white:   '0xE5E9F0'
 
   # Bright colors
   bright:
-    black: '#575b70'
-    red: '#ff6e67'
-    green: '#5af78e'
-    yellow: '#f4f99d'
-    blue: '#caa9fa'
-    magenta: '#ff92d0'
-    cyan: '#9aedfe'
-    white: '#e6e6e6'
+    black:   '0x4C566A'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan:    '0x8FBCBB'
+    white:   '0xECEFF4'
 
+#Paperlight
+#colors:
+  ## Default Colors
+  #primary:
+    #background: '0xf1f1f1'
+    #foreground: '0x424242'
+  ## Normal colors
+  #normal:
+    #black:   '0x212121'
+    #red:     '0xc30771'
+    #green:   '0x10a778'
+    #yellow:  '0xa89c14'
+    #blue:    '0x008ec4'
+    #magenta: '0x523c79'
+    #cyan:    '0x20a5ba'
+    #white:   '0xe0e0e0'
+  ## Bright colors
+  #bright:
+    #black:   '0x212121'
+    #red:     '0xfb007a'
+    #green:   '0x5fd7af'
+    #yellow:  '0xf3e430'
+    #blue:    '0x20bbfc'
+    #magenta: '0x6855de'
+    #cyan:    '0x4fb8cc'
+    #white:   '0xf1f1f1'

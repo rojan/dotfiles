@@ -21,4 +21,4 @@ except Exception as e:
 if count > 0:
     avg_temp = math.ceil(temperature/count)
 
-print ("  {}°C ".format(avg_temp))
+print ("{}°C".format(avg_temp))

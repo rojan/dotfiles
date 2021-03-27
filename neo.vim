@@ -25,12 +25,14 @@ Plug 'justinmk/vim-sneak'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'Rigellute/rigel'
 
 Plug 'rakr/vim-two-firewatch'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'sbdchd/neoformat'
 Plug 'whatyouhide/vim-lengthmatters'
-"Plug 'chrisbra/csv.vim'
+Plug 'chrisbra/Colorizer'
 call plug#end()
 
 "--------------FZF--------------------
@@ -38,12 +40,16 @@ call plug#end()
 nmap <C-l> :Buffer <cr>
 nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
 
+"----- Color scheme ----"
+let ayucolor="light"
+colorscheme nord
+
 
 "--------------Behaviour modification----------
 set hidden
 set encoding=utf-8
 set mouse=a
-"set termguicolors
+set termguicolors
 set number
 set tabstop=4
 set smartindent
@@ -71,7 +77,7 @@ let g:airline_powerline_fonts = 1
 if !exists("g:airline_symbols")
   let g:airline_symbols = {}
 endif
-let g:airline_theme="nord"
+let g:airline_theme="rigel"
 let g:airline_powerline_fonts=1
 let g:airline#extensions#branch#empty_message  =  "no .git"
 let g:airline#extensions#whitespace#enabled    =  0
@@ -178,7 +184,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 "Find selected word
 vnoremap <C-f> "hy:vimgrep "<C-r>h" **/*.* \| copen<left><left><left><left><left><left><left><left><left>
 
-colorscheme nord
 "highlight Visual cterm=bold ctermbg=Blue ctermfg=NONE
 
 "sneak config START
