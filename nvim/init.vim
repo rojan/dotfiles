@@ -13,9 +13,22 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 
+"status bar
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+" If you want to display icons, then use one of these plugins:
+Plug 'kyazdani42/nvim-web-devicons' " lua
+"Plug 'ryanoasis/vim-devicons' " vimscript
+
 "Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"
+
+"Plug 'hoob3rt/lualine.nvim'
+"" If you want to have icons in your statusline choose one of these
+"Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'ryanoasis/vim-devicons'
+
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 "jump location in file
@@ -205,3 +218,4 @@ command! -bang Projects call fzf#run(fzf#wrap({'source': 'cat ~/.fzf-marks | sed
 
 "Parse browser header to php function
 noremap <Leader>ph :s/\(.\{-}\): \(.*\)/$this->setHeaders('\1', '\2');<CR>
+
