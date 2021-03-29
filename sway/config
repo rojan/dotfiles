@@ -18,7 +18,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
+set $menu dmenu_path | wofi --show drun -i --width 700 | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -41,47 +41,7 @@ set $darkblack   #1d2021
 set $transparent #000000AA
 
 
-
-
-#output "*" background "~/Pictures/wallpapers" fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
 # Basics:
-#
     # Start a terminal
     bindsym $mod+Shift+Return exec $term
 
@@ -228,8 +188,8 @@ bar {
 include /etc/sway/config.d/*
 
 input "*" {
-xkb_options caps:swapescape
-tap enabled
+	xkb_options caps:swapescape
+	tap enabled
 }
 
 gaps inner 6
@@ -259,34 +219,28 @@ mode $power_mode {
     bindsym Escape    mode "default"
 }
 
-# Floating windows
-
+# Floating/sticky windows
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
-
 for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] floating enable
 for_window [window_role="Open Files"] floating enable sticky
 for_window [window_role="File Operation Progress"] floating enable sticky
 for_window [window_role="Save As"] floating enable
-
-for_window [class="qBittorrent" window_role="pop-up"] floating enable
-for_window [class="mtp-ng-qt" window_role="Open"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-
-# Sticky window
 for_window [instance="file_progress"]  sticky enable
-for_window [class="info|Mate-color-select|gcolor2|timesup|QtPass|GtkFileChooserDialog"] sticky enable
+for_window [class="info|GtkFileChooserDialog"] sticky enable
 
-
+#keybindings
 bindsym --locked XF86MonBrightnessUp exec light -T 1.4
 bindsym --locked XF86MonBrightnessDown exec light -T 0.72
-
+bindsym print exec --no-startup-id slurp | grim -g - ~/Pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+#gnome keyring settings
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
