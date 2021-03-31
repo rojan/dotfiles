@@ -213,8 +213,8 @@ mode $power_mode {
     bindsym r         exec systemctl reboot 
     bindsym l         exec swaylock -i ~/.config/sway/locked.jpg, mode "default"
     bindsym q         exec --no-startup-id i3-msg exit, mode "default"
-    bindsym h         exec systemctl hibernate 
-    bindsym s         exec systemctl suspend
+    bindsym h         exec systemctl hibernate, mode "default"
+    bindsym s         exec systemctl suspend && swaylock -i ~/.config/sway/locked.jpg, mode "default"
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
@@ -240,6 +240,8 @@ bindsym print exec --no-startup-id slurp | grim -g - ~/Pictures/screenshots/$(da
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+n workspace next
+bindsym $mod+Shift+n workspace prev
 
 #gnome keyring settings
 exec eval $(gnome-keyring-daemon --start)
