@@ -3,12 +3,12 @@ actions=1
 
 # Format
 font=Fira Code 8
-border-color=#002028
-border-size=2
-background-color=#002b36AA
-text-color=#fdf6e3
+border-color=#6A6D6D
+border-size=1
+background-color=#313042
+text-color=#1BB1FD
 format=<b>%s</b> <span color="#93a1a1">(%a)</span>\n%b
-default-timeout=5000
+default-timeout=8000
 
 # icons
 icon-path=/usr/share/icons/Papirus-Adapta-Nokto-Maia:/usr/share/icons/Papirus-Maia:/usr/share/icons/Papirus

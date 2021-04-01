@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     //"modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "battery", "backlight", "network", "clock", "tray"],
+    "modules-right": ["custom/weather", "pulseaudio", "battery", "backlight", "memory", "cpu", "network", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -124,16 +124,12 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
+    "custom/weather": {
+        "format": "{} {icon}",
         "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+            "default": ""
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec": "$HOME/dotfiles/status-scripts/weather.py"
     }
 }
