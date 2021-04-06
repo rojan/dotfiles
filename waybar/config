@@ -130,6 +130,7 @@
             "default": ""
         },
         "escape": true,
+		"interval": 600,
         "exec": "$HOME/dotfiles/status-scripts/weather.py"
     }
 }

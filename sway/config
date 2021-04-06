@@ -200,7 +200,7 @@ exec --no-startup-id blueman-applet &
 
 exec --no-startup-id mako -c ~/.config/mako/config &
 
-exec --no-startup-id swayidle -w timeout 300 'swaylock -i ~/.config/sway/locked.jpg'
+#exec --no-startup-id swayidle -w timeout 300 'swaylock -i ~/.config/sway/locked.jpg'
 
 #xwayland enable
 
@@ -232,6 +232,7 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [instance="file_progress"]  sticky enable
 for_window [class="info|GtkFileChooserDialog"] sticky enable
+for_window [app_id="gnome-calculator"] floating enable
 
 #keybindings
 bindsym --locked XF86MonBrightnessUp exec light -T 1.4
@@ -242,7 +243,10 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+n workspace next
 bindsym $mod+Shift+n workspace prev
+bindsym --whole-window button8 workspace next_on_output
+bindsym --whole-window button9 workspace prev_on_output
 
 #gnome keyring settings
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
+
