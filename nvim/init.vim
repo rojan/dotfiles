@@ -92,6 +92,7 @@ luafile ~/.config/nvim/lua/plugins/status-lsp.lua
 luafile ~/.config/nvim/lua/plugins/galaxy.lua
 luafile ~/.config/nvim/lua/plugins/icons.lua
 luafile ~/.config/nvim/lua/plugins/treesitter.lua
+luafile ~/.config/nvim/lua/plugins/rust-ls.lua
 
 " Statusline
 function! LspStatus() abort
