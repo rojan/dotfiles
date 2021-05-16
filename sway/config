@@ -19,6 +19,8 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | wofi --show drun -i --width 700 | xargs swaymsg exec --
+set $vps `$HOME/dotfiles/wofi_scripts/ssh_bookmarks.sh`
+set $window_switcher `$HOME/dotfiles/wofi_scripts/window_switcher.sh`
 
 ### Output configuration
 #
@@ -246,10 +248,11 @@ bindsym $mod+n workspace next
 bindsym $mod+Shift+n workspace prev
 bindsym --whole-window button8 workspace next_on_output
 bindsym --whole-window button9 workspace prev_on_output
+bindsym $mod+Shift+s exec $vps
+bindsym Alt+Tab exec $window_switcher
 #remove notification
 bindsym Ctrl+Space exec makoctl dismiss
 
 #gnome keyring settings
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
-
