@@ -18,7 +18,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wofi --show drun -i --width 700 | xargs swaymsg exec --
+set $menu dmenu_path | wofi --show drun -i -I --width 700 | xargs swaymsg exec --
 set $vps `$HOME/dotfiles/wofi_scripts/ssh_bookmarks.sh`
 set $window_switcher `$HOME/dotfiles/wofi_scripts/window_switcher.sh`
 
@@ -240,7 +240,7 @@ for_window [app_id="xarchiver"] floating enable
 #keybindings
 bindsym --locked XF86MonBrightnessUp exec light -T 1.4
 bindsym --locked XF86MonBrightnessDown exec light -T 0.72
-bindsym print exec --no-startup-id slurp | grim -g - ~/Pictures/screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+bindsym print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle

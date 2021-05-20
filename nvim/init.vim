@@ -25,6 +25,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'preservim/tagbar'
 Plug 'vim-php/tagbar-phpctags.vim'
+Plug 'kabouzeid/nvim-lspinstall'
 call plug#end()
 
 "----- Color scheme ----"

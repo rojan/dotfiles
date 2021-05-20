@@ -16,7 +16,7 @@ else
 fi
 
 # Select window with rofi
-selected=$(echo "$all_windows" | wofi --dmenu -i -p 'Actice windows:' | awk '{print $1}')
+selected=$(echo "$all_windows" | wofi --dmenu -i -p 'Active windows:' |  awk '{print $1}')
 
 # Tell sway to focus said window
 if [ $selected ]; then
