@@ -256,3 +256,6 @@ bindsym Ctrl+Space exec makoctl dismiss
 #gnome keyring settings
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
+
+#hide cursor after 4 sec
+seat * hide_cursor 4000
