@@ -20,7 +20,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | wofi --show drun -i -I --width 700 | xargs swaymsg exec --
 set $vps `$HOME/dotfiles/wofi_scripts/ssh_bookmarks.sh`
-set $window_switcher `$HOME/dotfiles/wofi_scripts/window_switcher.sh`
+set $window_switcher `$HOME/Documents/work/wofi-window-switcher/window_switcher.py`
 
 ### Output configuration
 #

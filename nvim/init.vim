@@ -57,6 +57,9 @@ set undodir=~/.nvim/tmp/undo//
 set backupdir=~/.nvim/tmp/backup//
 set directory=~/.nvim/tmp/swap//
 set backupskip=/tmp/*,/private/tmp/*"
+"set colorcolumn=100
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/
 "--------------Behaviour modification end----------
 
 "Ultisnips settings
