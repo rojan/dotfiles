@@ -1,4 +1,4 @@
-"Remap leader to comma 
+"Remap leader to comma
 let mapleader = ","
 
 call plug#begin('~/.nvim/plugged')
@@ -26,6 +26,7 @@ Plug 'honza/vim-snippets'
 Plug 'preservim/tagbar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'kabouzeid/nvim-lspinstall'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 "----- Color scheme ----"
@@ -48,6 +49,7 @@ set smartindent
 set relativenumber
 set shiftwidth=4
 set softtabstop=4
+set expandtab       " Expand TABs to spaces
 set inccommand=split
 set syntax=on
 set undofile
@@ -79,7 +81,7 @@ noremap <leader>gc :Git commit<CR>
 "Don't lose selected lines
 vnoremap < <gv
 vnoremap > >gv
-"Improve up/down movement on wrapped lines 
+"Improve up/down movement on wrapped lines
 nnoremap j gj
 nnoremap k gk
 "Replace selected word
@@ -106,3 +108,27 @@ function! LspStatus() abort
 
   return ''
 endfunction
+
+
+" disable linting while typing
+"let g:ale_linters_explicit = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open=0
+let g:ale_set_quickfix=0
+let g:ale_list_window_size = 10
+let g:ale_php_phpcbf_standard='PSR12'
+let g:ale_php_phpcs_standard="~/dotfiles/phpcs.xml"
+let g:ale_php_cs_fixer_options = '--config="$HOME/dotfiles/php-cs-fixer.dist.php"'
+let g:ale_fixers = {
+			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+			\ 'php': ['php_cs_fixer'],
+			\ 'python': ['black']
+			\}
+let g:ale_fix_on_save = 1
+let g:ale_linters = {
+			\ 'python': ['flake8'],
+			\ 'php': ['phpcs']
+			\}
