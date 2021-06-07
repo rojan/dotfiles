@@ -60,8 +60,8 @@ set backupdir=~/.nvim/tmp/backup//
 set directory=~/.nvim/tmp/swap//
 set backupskip=/tmp/*,/private/tmp/*"
 "set colorcolumn=100
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%101v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%101v.\+/
 "--------------Behaviour modification end----------
 
 "Ultisnips settings
@@ -125,7 +125,7 @@ let g:ale_php_cs_fixer_options = '--config="$HOME/dotfiles/php-cs-fixer.dist.php
 let g:ale_fixers = {
 			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 			\ 'php': ['php_cs_fixer'],
-			\ 'python': ['black']
+			\ 'python': ['black', 'isort']
 			\}
 let g:ale_fix_on_save = 1
 let g:ale_linters = {

@@ -212,7 +212,7 @@ set $power_mode "power [Shutdown(p), Reboot(r), Lock(l), Suspend(s)]"
 bindsym $mod+Shift+x	mode $power_mode
 mode $power_mode {
     bindsym p         exec systemctl poweroff
-    bindsym r         exec systemctl reboot 
+    bindsym r         exec systemctl reboot
     bindsym l         exec swaylock -i ~/.config/sway/locked.jpg, mode "default"
     bindsym q         exec --no-startup-id i3-msg exit, mode "default"
     bindsym h         exec systemctl hibernate, mode "default"
@@ -259,3 +259,7 @@ exec export SSH_AUTH_SOCK
 
 #hide cursor after 4 sec
 seat * hide_cursor 4000
+seat * hide_cursor when-typing true
+
+#scale laptop display to 2.2
+#output eDP-1 scale 2.2
