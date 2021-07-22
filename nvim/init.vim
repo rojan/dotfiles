@@ -1,19 +1,19 @@
 "Remap leader to comma
-let mapleader = ","
+"let mapleader = ","
 
 call plug#begin('~/.nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'arcticicestudio/nord-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'adelarsq/neoline.vim'
 "Plug 'ryanoasis/vim-devicons'
 Plug 'adelarsq/neovcs.vim'
-"Plug 'kyazdani42/nvim-web-devicons'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " If you want to display icons, then use one of these plugins:
 Plug 'kyazdani42/nvim-web-devicons'
@@ -21,17 +21,22 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'preservim/tagbar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'dense-analysis/ale'
+Plug 'folke/zen-mode.nvim'
+Plug 'TimUntersberger/neogit'
+"Neogit depends on this plugn
+Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
 "----- Color scheme ----"
 let ayucolor="light"
-colorscheme nord
+colorscheme tokyonight
 
 "--------------FZF--------------------
 "let g:fzf_files_options = {'source': 'rg --files'}
@@ -74,22 +79,6 @@ let g:tagbar_phpctags_bin='~/.local/bin/phpctags'
 "change auto suggestion background color
 highlight Pmenu guibg=grey gui=bold
 
-"------Keybindings-----
-"Fugutive
-noremap <leader>gs :Git<CR>
-noremap <leader>gc :Git commit<CR>
-"Don't lose selected lines
-vnoremap < <gv
-vnoremap > >gv
-"Improve up/down movement on wrapped lines
-nnoremap j gj
-nnoremap k gk
-"Replace selected word
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-noremap <leader><space> :noh<CR>
-nmap <leader>t :TagbarToggle<CR>
-"------Keybindings end--------
-
 "Lua plugins
 luafile ~/.config/nvim/lua/plugins/compe-config.lua
 luafile ~/.config/nvim/lua/plugins/python-ls.lua
@@ -99,6 +88,9 @@ luafile ~/.config/nvim/lua/plugins/galaxy.lua
 luafile ~/.config/nvim/lua/plugins/icons.lua
 luafile ~/.config/nvim/lua/plugins/treesitter.lua
 luafile ~/.config/nvim/lua/plugins/rust-ls.lua
+luafile ~/.config/nvim/lua/plugins/javascript-ls.lua
+luafile ~/.config/nvim/lua/plugins/lspsaga.lua
+luafile ~/.config/nvim/lua/plugins/zen-mod.lua
 
 " Statusline
 function! LspStatus() abort
@@ -125,10 +117,25 @@ let g:ale_php_cs_fixer_options = '--config="$HOME/dotfiles/php-cs-fixer.dist.php
 let g:ale_fixers = {
 			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 			\ 'php': ['php_cs_fixer'],
-			\ 'python': ['black', 'isort']
+			\ 'python': ['black', 'isort'],
+            \ 'javascript': ['standard']
 			\}
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
 			\ 'python': ['flake8'],
-			\ 'php': ['phpcs']
+			\ 'php': ['phpcs'],
+            \ 'javascript': ['standard']
 			\}
+
+filetype plugin indent on
+
+command! JsonFormat :%!python -m json.tool
+
+filetype plugin indent on
+autocmd Filetype javascript setlocal tabstop=2
+autocmd Filetype javascript setlocal shiftwidth=2
+autocmd Filetype javascript setlocal softtabstop=2
+
+luafile ~/.config/nvim/lua/keybinding.lua
+
+"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
