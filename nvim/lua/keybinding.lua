@@ -32,7 +32,7 @@ map('t', '<A-d>', '<C-\\><C-n>:Lspsaga close_floaterm<CR>', options)
 
 -- Fugutive
 map('n', '<leader>gs', ':Neogit<cr>', options)
---map('n', '<leader>gc', ':Git commit<CR>', options)
+map('n', '<leader>gc', ':Neogit commit<CR>', options)
 
 -- Don't lose selected lines
 map('v', '<', '<gv', options)
@@ -47,3 +47,23 @@ map('n', '<leader>t', ':TagbarToggle<cr>', options)
 
 --inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 map('i', '<TAB>', 'pumvisible() ? "\\<C-n>" : "\\<TAB>"', {expr=true, noremap=false, silent=true})
+
+map('n', 'Y', 'y$', options)
+map('n', 'n', 'nzzzv', options)
+map('n', 'N', 'Nzzzv', options)
+map('n', 'J', 'mzJ`z', options)
+
+--smart undo
+map('i', ',', ',<C-g>u', options)
+map('i', '.', '.<C-g>u', options)
+map('i', '!', '!<C-g>u', options)
+map('i', '?', '?<C-g>u', options)
+map('i', ' ', ' <C-g>u', options)
+
+--move lines/text
+map('v', 'J', ':m \'>+1<cr>gv=gv', options)
+map('v', 'K', ':m \'<-2<cr>gv=gv', options)
+map('i', '<C-j>', '<esc>:m .+1<cr>==', options)
+map('i', '<C-k>', '<esc>:m .-2<cr>==', options)
+map('n', '<leader>j', ':m .+1<cr>==', options)
+map('n', '<leader>k', ':m .-2<cr>==', options)

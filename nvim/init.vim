@@ -32,6 +32,7 @@ Plug 'folke/zen-mode.nvim'
 Plug 'TimUntersberger/neogit'
 "Neogit depends on this plugn
 Plug 'nvim-lua/plenary.nvim'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "----- Color scheme ----"

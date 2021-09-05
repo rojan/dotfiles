@@ -34,6 +34,7 @@ exec_always {
     gsettings set $gnome-schema gtk-theme 'Arc-Dark'
     gsettings set $gnome-schema icon-theme 'Sardi-Flat-Arc'
     gsettings set $gnome-schema cursor-theme 'Bibata-Original-Ice'
+    gsettings set org.gnome.desktop.wm.preferences button-layout ''
 
 }
 
@@ -48,6 +49,7 @@ set $focus-text-color    #87CEEB
 set $black       #282828
 set $darkblack   #1d2021
 set $transparent #000000AA
+set $opacity 0.9
 
 
 # Basics:
@@ -202,8 +204,9 @@ input "*" {
 }
 
 gaps inner 6
-smart_gaps on
-default_border none
+gaps outer 6
+#smart_gaps on
+default_border pixel 2
 
 exec --no-startup-id blueman-applet &
 
@@ -213,7 +216,7 @@ exec --no-startup-id mako -c ~/.config/mako/config &
 
 #xwayland enable
 
-for_window [app_id=".*"] border pixel 2
+#for_window [app_id=".*"] border pixel 2
 
 set $power_mode "power [Shutdown(p), Reboot(r), Lock(l), Suspend(s)]"
 bindsym $mod+Shift+x	mode $power_mode
@@ -260,9 +263,13 @@ bindsym Alt+Tab exec $window_switcher
 #remove notification
 bindsym Ctrl+Space exec makoctl dismiss
 
+#set opacity
+for_window [class="alacritty"] opacity $opacity
+
 #gnome keyring settings
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
+exec export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 #hide cursor after 4 sec
 seat * hide_cursor 4000
