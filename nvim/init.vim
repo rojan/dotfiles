@@ -6,7 +6,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'arcticicestudio/nord-vim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-fugitive'
@@ -33,6 +34,12 @@ Plug 'TimUntersberger/neogit'
 "Neogit depends on this plugn
 Plug 'nvim-lua/plenary.nvim'
 Plug 'Yggdroot/indentLine'
+"Plug 'voldikss/vim-floaterm'
+"Plug 's1n7ax/nvim-terminal'
+"Plug 'nikvdp/neomux'
+"Plug 'Olical/aniseed'
+"Plug 'jlesquembre/nterm.nvim'
+Plug 'akinsho/toggleterm.nvim'
 call plug#end()
 
 "----- Color scheme ----"
@@ -92,6 +99,7 @@ luafile ~/.config/nvim/lua/plugins/rust-ls.lua
 luafile ~/.config/nvim/lua/plugins/javascript-ls.lua
 luafile ~/.config/nvim/lua/plugins/lspsaga.lua
 luafile ~/.config/nvim/lua/plugins/zen-mod.lua
+luafile ~/.config/nvim/lua/plugins/terminal.lua
 
 " Statusline
 function! LspStatus() abort

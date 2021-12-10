@@ -43,7 +43,7 @@ map('v', 'k', 'gk', options)
 -- Replace selected word
 map('n', '<C-r>','"hy:%s/<C-r>h//gc<left><left><left>', options)
 map('n', '<leader><space>', ':noh<cr>', {noremap=true, silent=true})
-map('n', '<leader>t', ':TagbarToggle<cr>', options)
+map('n', '<leader>c', ':TagbarToggle<cr>', options)
 
 --inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 map('i', '<TAB>', 'pumvisible() ? "\\<C-n>" : "\\<TAB>"', {expr=true, noremap=false, silent=true})
@@ -67,3 +67,9 @@ map('i', '<C-j>', '<esc>:m .+1<cr>==', options)
 map('i', '<C-k>', '<esc>:m .-2<cr>==', options)
 map('n', '<leader>j', ':m .+1<cr>==', options)
 map('n', '<leader>k', ':m .-2<cr>==', options)
+
+map('n', '<leader>+', ':vertical resize +10<CR>', options)
+map('n', '<leader>-', ':vertical resize -10<CR>', {noremap=true, silent=true})
+
+map('n', '<leader>t', ':ToggleTerm<CR>', options)
+--map('n', '<leader>-', ':vertical resize -10<CR>', {noremap=true, silent=true})
